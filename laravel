@@ -1,0 +1,129 @@
+http://itisgood.ru/2018/08/08/kak-ustanovit-laravel-php-frejmvork-na-ubuntu/
+
+1) OpenServer, WAMP...
+2) Менеджер зависимостей Composer (ввести composer в командной строке для получения списков команд)
+    https://toster.ru/q/197641
+    composer -V
+3) Установка laravel через git при создании проекта в Шторме  https://github.com/laravel/laravel.git
+4) Переход в папку проекта cd /home/oem/PhpstormProjects/название
+5) Установка прав
+    sudo chown -R www-data.www-data /home/oem/PhpstormProjects/rfs
+    sudo chmod -R 755 /home/oem/PhpstormProjects/rfs
+    sudo chmod -R 777 /home/oem/PhpstormProjects/rfs/
+    sudo chmod -R 777 /home/oem/PhpstormProjects/rfs/storage
+6)Поставить artisan (composer install)
+7) Настройка ключа шифрования
+    sudo cp .env.example .env
+    sudo php artisan key:generate
+
+8) Сойздание БД
+    mysql -u root -p
+                        ei7veeChu4bo_TTy123__
+    CREATE DATABASE rf_db;
+    GRANT ALL ON rf_db.* to 'rf_db'@'localhost' IDENTIFIED BY 'laravYUI123y__elpas!!!s';
+    FLUSH PRIVILEGES;
+    quit
+
+    //теперь можно войти под пользователем rf_db с паролем laravYUI123y__elpas!!!s
+
+9) Прописать в env
+    DB_CONNECTION=mysql
+    DB_HOST=127.0.0.1
+    DB_PORT=3306
+    DB_DATABASE=rf_db
+    DB_USERNAME=rf_db
+    DB_PASSWORD=laravYUI123y__elpas!!!s
+
+10) Запустить php artisan serve
+
+11) Сделать миграции php artisan migrate
+
+12) Очистить кеш php artisan config:cache
+
+13) Делаем авторизацию
+    php artisan make:auth
+    или
+        composer require laravel/ui --dev
+        php artisan ui:auth
+        php artisan migrate
+        php artisan config:cache
+
+14)
+
+
+
+
+
+
+-Команды
+    php artisan -v версия Laravel
+    php artisan migrate
+    php artisan config:cache
+    php artisan serve -запуск
+    php artisan make:auth - авторизация
+
+-phpmyadmin
+    вход
+        http://localhost/phpmyadmin/index.php?token=c3fda7234b377addff343d8349932f4b
+        https://help.ubuntu.ru/wiki/руководство_по_ubuntu_server/приложения_lamp/phpmyadmin
+        login - root
+        pass - ei7veeChu4bo_TTy123__
+
+-создание пользователя в БД под проект
+    -подключение
+        mysql -u root -p
+        ei7veeChu4bo_TTy123__
+
+    -показать базы
+        SHOW DATABASES;
+
+    -Создать пользователя под проект
+        CREATE USER 'rf_user'@'localhost' IDENTIFIED BY 'rfYUI123y__elpas!!!s';
+
+    -Создать БД под проект
+        CREATE DATABASE `rf_db` CHARACTER SET utf8 COLLATE utf8_general_ci;
+
+
+//вывести в терминал php resourcсes/views/test.blade.php
+//вывести в терминал node common.js
+
+@php print_r($canceled) @endphp
+
+echo "# lartest" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/ArsenalGear/lartest.git
+git push -u origin master
+git remote remove origin
+ArsenalGear
+Morf6673
+
+-БД
+https://www.digitalocean.com/community/tutorials/linux-apache-mysql-php-lamp-ubuntu-18-04-ru
+//sudo mysql_secure_installation
+
+
+-apache-----------
+/etc/init.d/apache2 restart
+
+-удалить
+sudo dpkg -P phpmyadmin
+sudo rm -f /etc/apache2/conf.d/phpmyadmin.conf
+$ sudo rm -r /home/oem/WebstormProjects/aplan-spa/node_modules/
+
+-поставить
+sudo apt-get install phpmyadmin
+phpmyadmin@localhost
+
+-команды
+
+-sudo mysql -u root -p travel_class < /home/oem/My/admin_travelclass.sql
+
+-показать пользователей
+SELECT User, Host FROM mysql.user;
+
+-авторизация php artisan make:auth
+-баг поправить после  php artisan make:auth
+в usr/share/phpmyadmin/libraries/sql.lib.php 613 строка
+|| ((count($analyzed_sql_results['select_expr']) == 1)
