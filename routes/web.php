@@ -20,8 +20,8 @@ Route::get('/test', function () {
 });
 
 //
-//Auth::routes(['register' => false]);
-Auth::routes();
+Auth::routes(['register' => false]);
+//Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
