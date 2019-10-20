@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Rf;
 
 use Illuminate\Database\Eloquent\Model;
 
-class BlogCategory extends Model
+class StoreWeapon extends Model
 {
     //
 }

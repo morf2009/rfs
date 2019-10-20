@@ -18,9 +18,9 @@ class UsersTableSeeder extends Seeder
         		'password' => bcrypt(str_random(16)), //получить хэш пароля
 	        ],
         	[
-        		'name' => 'Автор',
-        		'email' => 's@sfss.ru',
-        		'password' => bcrypt('123123'),
+        		'name' => 'Санек',
+        		'email' => 'morf2009@gmail.com',
+        		'password' => bcrypt('morf6673'),
 	        ],
         ];
         
