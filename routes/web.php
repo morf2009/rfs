@@ -23,7 +23,8 @@ Route::get('/test', function () {
 Auth::routes(['register' => false]);
 //Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/store/weapon', 'StoreController@index')->name('weapon'); //после успешной авторизации нас перекидывает на HomeController метод @index'
 
 
 // /home -страница,
@@ -32,8 +33,14 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Auth::routes();//появляется после команды   php artisan ui:auth
 
-Route::group(['namespace' => 'Blog', 'prefix' => 'blog'], function () {
-	Route::resource('posts', 'PostController')->names('blog-posts');
+Route::group(['namespace' => 'Store', 'prefix' => 'store'], function () {
+	Route::resource('weapon', 'StoreController');
+});
+Route::group(['namespace' => 'Store', 'prefix' => 'store'], function () {
+	Route::resource('accessories', 'AccessoriesController');
+});
+Route::group(['namespace' => 'Store', 'prefix' => 'store'], function () {
+	Route::resource('armor', 'ArmorController');
 });
 //Аналогичная запись без namespace - это путь до папки c PostController
 //	Route::group(['prefix' => 'blog'], function () {
@@ -41,7 +48,8 @@ Route::group(['namespace' => 'Blog', 'prefix' => 'blog'], function () {
 //	});
 //	prefix' => 'blog' - url будет заканчиваться на blog/posts (или без префикса Route::resource('blogp/osts'))
 
-Route::get('/home', 'HomeController@index')->name('home'); //после успешной авторизации нас перекидывает на HomeController метод @index'
+
+
 
 //создаем маршрут, который является ресурсом с названием rest (название URL), за этот ресурс отвечает RestTestController, restTest - имя маршрута
 Route::resource('rest', 'RestTestController')->names('restTest');
