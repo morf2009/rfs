@@ -18,6 +18,8 @@ class PostController extends BaseController
         //вывод сущностей
 	        $items = BlogPost::all(); //в эту переменную попадают все статьи блога
 	        //содержится в databaseseeder
+	        //BlogPost - моделька Блогпостов , табличка из базы BlogPost
+	    
 	    
 //	        dd($items);
 //	        dd($items[0]);
